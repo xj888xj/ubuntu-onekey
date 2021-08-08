@@ -5,6 +5,8 @@ C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*onWindows
 
 ubuntu更换国内源
 
+#################################################################
+
 方案1.shell命令一键更换（阿里云源）
 
 sudo git clone https://gitee.com/xj888xj/ubuntu-aliyun-sources.git
