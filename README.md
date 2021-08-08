@@ -14,6 +14,7 @@ cd ubuntu-aliyun-sources
 sudo bash change.sh
 
 #################################################################
+
 sudo git clone https://github.com/xj888xj/ubuntu-aliyun-sources.git
 
 cd ubuntu-aliyun-sources
@@ -21,6 +22,7 @@ cd ubuntu-aliyun-sources
 sudo bash change.sh
 
 #################################################################
+
 sudo git clone https://github.com/AndyYoungDev/ubuntu-aliyun-sources.git
 
 cd ubuntu-aliyun-sources
@@ -38,6 +40,7 @@ cd Linux_scripts
 sudo bash Ubuntu_source.sh
 
 #################################################################
+
 sudo git clone https://gitee.com/xj888xj/Linux_scripts.git
 
 cd Linux_scripts
