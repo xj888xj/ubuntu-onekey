@@ -33,7 +33,7 @@ sudo bash change.sh
 
 ################################################################
 
-方案2.shell命令一键更换三种源
+方案2.shell命令一键更换四种源
 
 sudo git clone https://github.com/xj888xj/Linux_scripts.git
 
