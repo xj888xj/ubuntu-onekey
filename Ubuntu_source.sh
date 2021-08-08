@@ -69,3 +69,4 @@ deb-src $sourceweb/ubuntu/ $Codename-proposed main restricted universe multivers
 deb-src $sourceweb/ubuntu/ $Codename-backports main restricted universe multiverse">/etc/apt/sources.list
 echo "更新源..."
 sudo apt-get update
+sudo apt-get upgrade -y
