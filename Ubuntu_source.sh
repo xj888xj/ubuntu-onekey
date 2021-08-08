@@ -16,7 +16,7 @@ echo "
 echo "**********************************"
 read -s -n1 sourceChoice
 
-if [ $sourceChoice -ne 1 ] && [ $sourceChoice -ne 2 ] && [ $sourceChoice -ne 3 ];then
+if [ $sourceChoice -ne 1 ] && [ $sourceChoice -ne 2 ] && [ $sourceChoice -ne 3 ] && [ $sourceChoice -ne 4 ];then
     echo
     echo '输入有误，Good Bye.'
     exit
