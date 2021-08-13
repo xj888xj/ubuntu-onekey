@@ -7,24 +7,6 @@ ubuntu更换国内源
 
 #################################################################
 
-方案1.shell命令一键更换（阿里云源）
-
-sudo git clone https://gitee.com/xj888xj/ubuntu-aliyun-sources.git
-
-cd ubuntu-aliyun-sources
-
-sudo bash change.sh
-
-#################################################################
-
-sudo git clone https://github.com/xj888xj/ubuntu-aliyun-sources.git
-
-cd ubuntu-aliyun-sources
-
-sudo bash change.sh
-
-#################################################################
-
 sudo git clone https://github.com/AndyYoungDev/ubuntu-aliyun-sources.git
 
 cd ubuntu-aliyun-sources
@@ -35,7 +17,7 @@ sudo bash change.sh
 
 方案2.shell命令一键更换四种源
 
-sudo git clone https://github.com/xj888xj/Linux_scripts.git
+sudo git clone https://github.com/xj888xj/ubuntu.git
 
 cd Linux_scripts
 
@@ -43,7 +25,7 @@ sudo bash Ubuntu_source.sh
 
 #################################################################
 
-sudo git clone https://gitee.com/xj888xj/Linux_scripts.git
+sudo git clone https://gitee.com/xj888xj/ubuntu.git
 
 cd Linux_scripts
 
