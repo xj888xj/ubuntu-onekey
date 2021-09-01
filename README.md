@@ -15,7 +15,7 @@ sudo bash change.sh
 
 ################################################################
 
-方案2.shell命令一键更换四种源
+shell命令一键更换四种源
 
 sudo git clone https://github.com/xj888xj/ubuntu.git
 
@@ -24,12 +24,6 @@ cd Linux_scripts
 sudo bash Ubuntu_source.sh
 
 #################################################################
-
-sudo git clone https://gitee.com/xj888xj/ubuntu.git
-
-cd Linux_scripts
-
-sudo bash Ubuntu_source.sh
 
 
 
