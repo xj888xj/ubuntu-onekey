@@ -19,7 +19,7 @@ sudo bash change.sh
 
 sudo git clone https://github.com/xj888xj/ubuntu.git
 
-cd Linux_scripts
+cd ubuntu
 
 sudo bash Ubuntu_source.sh
 
