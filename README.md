@@ -34,3 +34,8 @@ wget https://github.com/xj888xj/ubuntu/blob/master/Ubuntu_source.sh
 
 bash Ubuntu source.sh
 
+C:
+wget https://github.com/xj888xj/ubuntu/blob/master/yijianhuanyuan.sh
+
+bash yijianhuanyuan.sh
+
