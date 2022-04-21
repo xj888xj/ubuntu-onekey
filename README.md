@@ -25,5 +25,7 @@ sudo bash Ubuntu_source.sh
 
 #################################################################
 
+wget https://raw.githubusercontent.com/sneeuw8/Linux_scripts/master/Ubuntu_source.sh
 
+bash Ubntu_source.sh
 
