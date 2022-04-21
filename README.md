@@ -9,7 +9,7 @@ C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*onWindows
 
 sudo git clone https://github.com/AndyYoungDev/ubuntu-aliyun-sources.git
 
-cd ubuntu
+cd ubuntu-aliyun-sources
 
 sudo bash change.sh
 
