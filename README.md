@@ -7,11 +7,11 @@ C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*onWindows
 
 #################################################################
 
-sudo git clone https://github.com/AndyYoungDev/ubuntu-aliyun-sources.git
+sudo git clone https://github.com/xj888xj/ubuntu.git
 
-cd ubuntu-aliyun-sources
+cd ubuntu
 
-sudo bash change.sh
+sudo bash yijianhuanyuan.sh
 
 ################################################################
 
