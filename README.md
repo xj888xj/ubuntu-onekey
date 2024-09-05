@@ -23,7 +23,7 @@ cd ubuntu
 
 sudo bash Ubuntu_source.sh
 
-#################################################################
+######################################################################################
 A:
 wget https://raw.githubusercontent.com/sneeuw8/Linux_scripts/master/Ubuntu_source.sh
 
