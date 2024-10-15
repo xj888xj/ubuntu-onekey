@@ -32,7 +32,7 @@ bash Ubuntu_source.sh
 B:
 wget https://github.com/xj888xj/ubuntu/blob/master/Ubuntu_source.sh
 
-bash Ubuntu source.sh
+bash Ubuntu_source.sh
 
 C:
 wget https://github.com/xj888xj/ubuntu/blob/master/yijianhuanyuan.sh
