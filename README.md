@@ -27,7 +27,7 @@ sudo bash Ubuntu_source.sh
 A:
 wget https://raw.githubusercontent.com/sneeuw8/Linux_scripts/master/Ubuntu_source.sh
 
-bash Ubntu_source.sh
+bash Ubuntu_source.sh
 
 B:
 wget https://github.com/xj888xj/ubuntu/blob/master/Ubuntu_source.sh
