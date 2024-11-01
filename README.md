@@ -30,12 +30,12 @@ wget https://raw.githubusercontent.com/sneeuw8/Linux_scripts/master/Ubuntu_sourc
 bash Ubuntu_source.sh
 
 B:
-wget https://github.com/xj888xj/ubuntu/blob/master/Ubuntu_source.sh
+wget https://raw.githubusercontent.com/xj888xj/ubuntu/master/Ubuntu_source.sh
 
 bash Ubuntu_source.sh
 
 C:
-wget https://github.com/xj888xj/ubuntu/blob/master/yijianhuanyuan.sh
+wget https://raw.githubusercontent.com/xj888xj/ubuntu/master/yijianhuanyuan.sh
 
 bash yijianhuanyuan.sh
 
