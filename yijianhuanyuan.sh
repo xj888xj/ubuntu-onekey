@@ -1,83 +1,76 @@
 #!/bin/bash
 
+set -e  # 如果任何命令失败，立即退出
+
+# 获取系统信息
 SYSTEM_NAME=$(lsb_release -is)
 SYSTEM_VERSION=$(lsb_release -cs)
 SYSTEM_VERSION_NUMBER=$(lsb_release -rs)
 
-echo -e '\033[37m##################################################### \033[0m'
+# 显示可选的国内更新源
+echo -e '#####################################################'
+echo -e '            提供以下国内更新源可供选择               '
+echo -e '#####################################################'
 echo -e ''
-echo -e '\033[37m            提供以下国内更新源可供选择： \033[0m'
-echo -e ''
-echo -e '\033[37m##################################################### \033[0m'
-echo -e ''
-echo -e '\033[37m *  1)    中科大 \033[0m'
-echo -e '\033[37m *  2)    华为云 \033[0m'
-echo -e '\033[37m *  3)    阿里云 \033[0m'
-echo -e '\033[37m *  4)    网易 \033[0m'
-echo -e '\033[37m *  5)    搜狐 \033[0m'
-echo -e '\033[37m *  6)    清华大学 \033[0m'
-echo -e '\033[37m *  7)    浙江大学 \033[0m'
-echo -e '\033[37m *  8)    南京大学 \033[0m'
-echo -e '\033[37m *  9)    重庆大学 \033[0m'
-echo -e '\033[37m *  10)   兰州大学 \033[0m'
-echo -e '\033[37m *  11)   上海交通大学 \033[0m'
-echo -e '\033[37m *  12)   北京交通大学 \033[0m'
-echo -e '\033[37m *  13)   北京理工大学 \033[0m'
-echo -e '\033[37m *  14)   南京邮电大学 \033[0m'
-echo -e '\033[37m *  15)   华中科技大学 \033[0m'
-echo -e '\033[37m *  16)   哈尔滨工业大学 \033[0m'
-echo -e '\033[37m *  17)   北京外国语大学 \033[0m'
-echo -e ''
-echo -e '\033[37m##################################################### \033[0m'
-echo -e ''
-echo -e "\033[37m      当前操作系统  $SYSTEM_NAME $SYSTEM_VERSION_NUMBER \033[0m"
-echo -e "\033[37m      当前系统时间  $(date +%Y-%m-%d) $(date +%H:%M) \033[0m"
-echo -e ''
-echo -e '\033[37m##################################################### \033[0m'
+declare -A SOURCES=(
+    [1]="mirrors.ustc.edu.cn 中科大"
+    [2]="mirrors.huaweicloud.com 华为云"
+    [3]="mirrors.aliyun.com 阿里云"
+    [4]="mirrors.163.com 网易"
+    [5]="mirrors.sohu.com 搜狐"
+    [6]="mirrors.tuna.tsinghua.edu.cn 清华大学"
+    [7]="mirrors.zju.edu.cn 浙江大学"
+    [8]="mirrors.nju.edu.cn 南京大学"
+    [9]="mirrors.cqu.edu.cn 重庆大学"
+    [10]="mirror.lzu.edu.cn 兰州大学"
+    [11]="ftp.sjtu.edu.cn 上海交通大学"
+    [12]="mirror.bjtu.edu.cn 北京交通大学"
+    [13]="mirror.bit.edu.cn 北京理工大学"
+    [14]="mirrors.njupt.edu.cn 南京邮电大学"
+    [15]="mirrors.hust.edu.cn 华中科技大学"
+    [16]="mirrors.hit.edu.cn 哈尔滨工业大学"
+    [17]="mirrors.bfsu.edu.cn 北京外国语大学"
+)
+
+for key in "${!SOURCES[@]}"; do
+    echo -e " *  $key)    ${SOURCES[$key]#* }"
+done
+
+echo -e '#####################################################'
+echo -e "      当前操作系统  $SYSTEM_NAME $SYSTEM_VERSION_NUMBER"
+echo -e "      当前系统时间  $(date +%Y-%m-%d) $(date +%H:%M)"
+echo -e '#####################################################'
 echo -e ''
 
-CHOICE=$(echo -e '\033[32m请输入您想使用的国内更新源 [ 1~17 ]：\033[0m')
-read -p "$CHOICE" INPUT
+# 用户输入
+while true; do
+    read -p "$(echo -e '请输入您想使用的国内更新源 [ 1~17 ]')" INPUT
+    if [[ "$INPUT" =~ ^[1-9]$ || "$INPUT" == "1[0-7]" ]]; then
+        break
+    else
+        echo -e '----------输入无效，请输入一个有效的选项 [ 1~17 ]----------'
+    fi
+done
 
-# 根据用户输入选择源
-case $INPUT in
-    1) SOURCE="mirrors.ustc.edu.cn" ;;
-    2) SOURCE="mirrors.huaweicloud.com" ;;
-    3) SOURCE="mirrors.aliyun.com" ;;
-    4) SOURCE="mirrors.163.com" ;;
-    5) SOURCE="mirrors.sohu.com" ;;
-    6) SOURCE="mirrors.tuna.tsinghua.edu.cn" ;;
-    7) SOURCE="mirrors.zju.edu.cn" ;;
-    8) SOURCE="mirrors.nju.edu.cn" ;;
-    9) SOURCE="mirrors.cqu.edu.cn" ;;
-    10) SOURCE="mirror.lzu.edu.cn" ;;
-    11) SOURCE="ftp.sjtu.edu.cn" ;;
-    12) SOURCE="mirror.bjtu.edu.cn" ;;
-    13) SOURCE="mirror.bit.edu.cn" ;;
-    14) SOURCE="mirrors.njupt.edu.cn" ;;
-    15) SOURCE="mirrors.hust.edu.cn" ;;
-    16) SOURCE="mirrors.hit.edu.cn" ;;
-    17) SOURCE="mirrors.bfsu.edu.cn" ;;
-    *) 
-        SOURCE="mirrors.ustc.edu.cn"
-        echo -e ''
-        echo -e '\033[33m----------输入错误，更新源将默认使用中科大源---------- \033[0m'
-        sleep 3s
-        ;;
-esac
+# 根据输入选择源
+SOURCE=${SOURCES[$INPUT]:-"mirrors.ustc.edu.cn"}
+if [ -z "${SOURCES[$INPUT]}" ]; then
+    echo -e '----------输入错误，更新源将默认使用中科大源----------'
+    sleep 3s
+fi
 
 # 检查是否备份
-if [ -f /etc/apt/sources.list.bak ]; then
-    echo -e '\033[32m检测到已备份的 sources.list 文件，跳过备份操作...... \033[0m'
-else
+if [ ! -f /etc/apt/sources.list.bak ]; then
     cp -rf /etc/apt/sources.list /etc/apt/sources.list.bak
-    echo -e '\033[32m已备份原有 sources.list 更新源文件...... \033[0m'
+    echo -e '已备份原有 sources.list 更新源文件......'
+else
+    echo -e '检测到已备份的 sources.list 文件，跳过备份操作......'
 fi
 
 sleep 2s
 
 # 更新 sources.list
-echo -e '\033[32m正在更新 sources.list 文件......\033[0m'
+echo -e '正在更新 sources.list 文件......'
 {
     echo "deb https://$SOURCE/ubuntu/ $SYSTEM_VERSION main restricted universe multiverse"
     echo "deb-src https://$SOURCE/ubuntu/ $SYSTEM_VERSION main restricted universe multiverse"
@@ -92,7 +85,11 @@ echo -e '\033[32m正在更新 sources.list 文件......\033[0m'
 } > /etc/apt/sources.list
 
 # 更新软件包列表
-echo -e '\033[32m正在更新软件包列表......\033[0m'
-apt update
+echo -e '正在更新软件包列表......'
+if apt update; then
+    echo -e '软件包列表更新成功！'
+else
+    echo -e '软件包列表更新失败，请检查错误！'
+fi
 
-echo -e '\033[32m更新源操作完成！\033[0m'
+echo -e '更新源操作完成！'
