@@ -1,5 +1,4 @@
 #!/bin/bash
-# Author: 孤_存
 
 SYSTEM_NAME=$(lsb_release -is)
 SYSTEM_VERSION=$(lsb_release -cs)
