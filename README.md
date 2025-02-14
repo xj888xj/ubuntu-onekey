@@ -9,9 +9,13 @@ C:\Users\用户名\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu*onWindows
 sudo git clone https://github.com/xj888xj/ubuntu-onekey.git
 
 cd ubuntu
+
 chmod +x yijianhuanyuan.sh
+
 ./yijianhuanyuan.sh
+
 OR
+
 sudo bash yijianhuanyuan.sh
 
 ################################################################
@@ -21,9 +25,13 @@ sudo bash yijianhuanyuan.sh
 sudo git clone https://github.com/xj888xj/ubuntu-onekey.git
 
 cd ubuntu
+
 chmod +x Ubuntu_source.sh
+
 ./Ubuntu_source.sh
+
 OR
+
 sudo bash Ubuntu_source.sh
 
 ###################################################################################### 
